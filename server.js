@@ -1,7 +1,7 @@
 /**
  * Zero-dependency Local Development Server
- * Serves static files (HTML, CSS, JS) and handles /api/chat requests
- * using the api/chat.js Vercel Function handler.
+ * Serves landing page (index.html), chatbot app (app.html), static assets,
+ * and routes /api/chat requests to api/chat.js Vercel Function.
  */
 
 import http from 'node:http';
@@ -67,7 +67,6 @@ const server = http.createServer(async (req, res) => {
     });
 
     req.on('end', async () => {
-      // Mock Express/Vercel response methods
       let statusCode = 200;
       const headers = {};
 
@@ -116,14 +115,26 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  // Handle Static Files (Simulating CDN static asset delivery)
-  let filePath = path.join(__dirname, pathname === '/' ? 'index.html' : pathname);
+  // Route resolution for clean URLs and static files
+  let requestedFile = pathname;
+  if (requestedFile === '/' || requestedFile === '') {
+    requestedFile = 'index.html';
+  } else if (requestedFile === '/app' || requestedFile === '/chat') {
+    requestedFile = 'app.html';
+  }
+
+  let filePath = path.join(__dirname, requestedFile);
 
   // Security check: keep within __dirname
   if (!filePath.startsWith(__dirname)) {
     res.writeHead(403);
     res.end('Forbidden');
     return;
+  }
+
+  // Check if file exists, or if appending .html works (for cleanUrls)
+  if (!fs.existsSync(filePath) && fs.existsSync(filePath + '.html')) {
+    filePath = filePath + '.html';
   }
 
   fs.stat(filePath, (err, stats) => {
@@ -138,7 +149,6 @@ const server = http.createServer(async (req, res) => {
 
     res.writeHead(200, {
       'Content-Type': contentType,
-      // CDN cache header simulation for static assets
       'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=60'
     });
 
@@ -150,7 +160,8 @@ const server = http.createServer(async (req, res) => {
 server.listen(PORT, () => {
   console.log(`\n======================================================`);
   console.log(`🚀 Grok Student Assistant local server is running!`);
-  console.log(`📡 URL: http://localhost:${PORT}`);
-  console.log(`🔑 XAI_API_KEY: ${process.env.XAI_API_KEY ? 'Configured ✅' : 'Missing ⚠️ (Add to .env.local)'}`);
+  console.log(`📡 Landing Page: http://localhost:${PORT}/`);
+  console.log(`💬 Chatbot App:  http://localhost:${PORT}/app.html`);
+  console.log(`🔑 XAI_API_KEY:  ${process.env.XAI_API_KEY ? 'Configured ✅' : 'Missing ⚠️ (Add to .env.local)'}`);
   console.log(`======================================================\n`);
 });

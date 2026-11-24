@@ -3,135 +3,837 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AI-Powered Student Study Assistant powered by Grok API and deployed on Vercel with CDN delivery.">
-  <meta name="theme-color" content="#08090D">
-  <title>Grok Student Assistant — AI Study Companion</title>
+  <meta name="description" content="Grok Student Assistant — A cloud-powered AI learning companion built with xAI Grok API, Vercel Serverless Functions, and Vercel CDN.">
+  <meta name="theme-color" content="#FBFBFC">
+  <title>Grok Student Assistant — AI Study Companion & Cloud Computing Project</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="landing.css">
 </head>
 <body>
-  <!-- Background ambient glow -->
-  <div class="ambient-glow" aria-hidden="true"></div>
+  <!-- Subtle Background Gradient Ambient Layer -->
+  <div class="bg-decorations" aria-hidden="true">
+    <div class="decor-glow-top"></div>
+  </div>
 
-  <div class="app-layout">
-    <!-- Header -->
-    <header class="app-header">
-      <div class="brand">
-        <div class="brand-logo" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-brand" aria-label="Grok Student Assistant Home">
+        <div class="brand-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
           </svg>
         </div>
-        <div class="brand-info">
-          <span class="brand-name">Grok Student Assistant</span>
-          <span class="brand-badge">
-            <span class="status-dot" aria-hidden="true"></span>
-            AI study assistant
-          </span>
-        </div>
-      </div>
-      <div class="header-actions">
-        <button id="clear-chat-btn" class="secondary-btn" title="Clear conversation" aria-label="Clear conversation history">
+        <span class="brand-title">Grok Student Assistant</span>
+      </a>
+
+      <!-- Desktop & Mobile Menu Links -->
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#intro" class="nav-link">Overview</a></li>
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="#architecture" class="nav-link">Architecture</a></li>
+        <li><a href="#technology" class="nav-link">Technology</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+      </ul>
+
+      <!-- CTA Button in Header -->
+      <div class="nav-actions">
+        <a href="app.html" class="btn-primary" id="nav-cta-btn">
+          <span>Try Assistant</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="3 6 5 6 21 6"></polyline>
-            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
-          <span class="btn-text">Clear</span>
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
         </button>
       </div>
-    </header>
+    </div>
+  </nav>
 
-    <!-- Main Content Area -->
-    <main class="main-content">
-      <!-- Hero Section (Visible when no conversation yet) -->
-      <section id="hero-section" class="hero-section">
-        <div class="hero-pill">
-          <span class="pill-sparkle" aria-hidden="true">✦</span>
-          <span>Cloud Computing CAT-3 Project</span>
+  <!-- Hero Section -->
+  <header class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <!-- Left Column: Content -->
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot" aria-hidden="true"></span>
+          <span>Cloud Computing | CAT-3 Project</span>
         </div>
-        <h1 class="hero-title">
-          Your study companion, <span class="gradient-text">powered by Grok.</span>
+
+        <h1 class="hero-heading">
+          Your questions deserve <span class="gradient-text">better answers.</span>
         </h1>
-        <p class="hero-subtitle">
-          Ask a question. Get a clear explanation. Keep learning.
+
+        <p class="hero-description">
+          Grok Student Assistant is a cloud-powered AI learning companion that helps students understand concepts, solve academic doubts and learn more effectively.
         </p>
 
-        <!-- Prompt Starter Chips -->
-        <div class="chips-container" role="region" aria-label="Suggested study questions">
-          <span class="chips-label">Try asking:</span>
-          <div class="chips-grid">
-            <button class="chip-btn" data-prompt="Explain cloud computing in simple words with real-life examples.">
-              ☁️ Cloud computing basics
-            </button>
-            <button class="chip-btn" data-prompt="What is the difference between IaaS, PaaS, and SaaS?">
-              ⚙️ IaaS vs PaaS vs SaaS
-            </button>
-            <button class="chip-btn" data-prompt="How does a Content Delivery Network (CDN) work and why is it useful?">
-              🌐 How CDNs work
-            </button>
-            <button class="chip-btn" data-prompt="Explain DNS lookup step by step as if I am a beginner.">
-              🔍 DNS lookup explained
-            </button>
+        <div class="hero-cta-group">
+          <a href="app.html" class="btn-primary">
+            <span>Start Learning</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="#how-it-works" class="btn-secondary">
+            <span>Explore Project</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <div class="meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+            </svg>
+            <span>Vercel Cloud Functions</span>
+          </div>
+          <div class="meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            <span>Vercel Global CDN</span>
+          </div>
+          <div class="meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            <span>xAI Grok Responses API</span>
           </div>
         </div>
-      </section>
+      </div>
 
-      <!-- Chat Panel Container -->
-      <section class="chat-panel" aria-label="Conversation panel">
-        <!-- Messages List -->
-        <div id="messages-container" class="messages-container" role="log" aria-live="polite" aria-relevant="additions text">
-          <!-- Chat welcome note inside panel -->
-          <div class="welcome-card" id="welcome-card">
-            <div class="welcome-icon" aria-hidden="true">🎓</div>
-            <div class="welcome-body">
-              <h2>Welcome to Grok Student Assistant</h2>
-              <p>Type any academic concept, homework question, or topic you'd like explained step by step. Grok provides structured answers designed for easy learning.</p>
+      <!-- Right Column: Realistic Browser-style Chatbot Preview -->
+      <div class="preview-container">
+        <div class="browser-window">
+          <!-- Window Title Bar -->
+          <div class="window-header">
+            <div class="window-dots" aria-hidden="true">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="window-address">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <span>grok-student-assistant.vercel.app/app</span>
+            </div>
+            <div class="window-action-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="19" cy="12" r="1"></circle>
+                <circle cx="5" cy="12" r="1"></circle>
+              </svg>
             </div>
           </div>
-        </div>
 
-        <!-- Chat Input Form -->
-        <form id="chat-form" class="chat-form" role="form" aria-label="Question submission form">
-          <div class="input-wrapper">
-            <label for="question-input" class="sr-only">Enter your study question</label>
-            <textarea
-              id="question-input"
-              class="question-input"
-              rows="1"
-              maxlength="2000"
-              placeholder="Ask anything about your studies... (Enter to send, Shift+Enter for new line)"
-              required
-              aria-required="true"
-            ></textarea>
-            
-            <div class="input-controls">
-              <span id="char-counter" class="char-counter" aria-live="off">0 / 2,000</span>
-              <button type="submit" id="send-button" class="send-button" aria-label="Send question">
-                <span class="send-label">Send</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <!-- Inside Chatbot Preview -->
+          <div class="chatbot-preview">
+            <div class="chat-preview-header">
+              <div class="preview-brand">
+                <div class="preview-logo" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                  </svg>
+                </div>
+                <span class="preview-title">Grok Student Assistant</span>
+              </div>
+              <div class="preview-status">
+                <span class="status-indicator" aria-hidden="true"></span>
+                <span>Active</span>
+              </div>
+            </div>
+
+            <div class="preview-welcome">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+              <span>Welcome! Ask any academic concept, algorithm question, or homework topic.</span>
+            </div>
+
+            <!-- Conversation messages -->
+            <div class="preview-messages">
+              <div class="preview-msg user">
+                <div class="msg-avatar user-av">You</div>
+                <div class="msg-bubble">
+                  What is the difference between IaaS, PaaS, and SaaS in cloud computing?
+                </div>
+              </div>
+
+              <div class="preview-msg assistant">
+                <div class="msg-avatar ai">G</div>
+                <div class="msg-bubble">
+                  <strong>Three core cloud service models:</strong><br>
+                  • <strong>IaaS (Infrastructure as a Service):</strong> Provides raw computing, storage, and networking (e.g., AWS EC2). You manage the OS and apps.<br>
+                  • <strong>PaaS (Platform as a Service):</strong> Provides a managed development environment (e.g., Vercel, Heroku). You bring the code.<br>
+                  • <strong>SaaS (Software as a Service):</strong> Complete hosted software delivered over the web (e.g., Google Drive). Ready to use.
+                </div>
+              </div>
+            </div>
+
+            <!-- Fake input box -->
+            <div class="preview-input-box">
+              <span class="preview-placeholder">Ask anything about your studies...</span>
+              <button class="preview-send-btn" aria-label="Send preview message">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="22" y1="2" x2="11" y2="13"></line>
                   <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                 </svg>
               </button>
             </div>
           </div>
-        </form>
-      </section>
-    </main>
 
-    <!-- Footer -->
-    <footer class="app-footer">
-      <p class="disclaimer">
-        AI-generated answers may contain mistakes. Verify important information with trusted learning resources.
-      </p>
-      <p class="architecture-note">
-        Deployed on <strong>Vercel Functions</strong> &bull; Static assets cached via <strong>Vercel CDN</strong> &bull; Powered by <strong>xAI Grok</strong>
-      </p>
-    </footer>
-  </div>
+          <a href="app.html" class="preview-interactive-badge">
+            Open Interactive Assistant Interface &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-  <script src="script.js"></script>
+  <!-- Project Introduction Section -->
+  <section class="section" id="intro">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Project Introduction</span>
+        <h2 class="section-title">Learning, made simpler.</h2>
+        <p class="section-desc">
+          Students can enter academic questions and receive structured explanations using the Grok AI API. The entire system is built for resilience, instant responsiveness, and zero maintenance overhead.
+        </p>
+      </div>
+
+      <div class="intro-grid">
+        <div class="intro-card">
+          <div class="intro-card-icon icon-lavender">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </div>
+          <h3 class="intro-card-title">Structured Academic Explanations</h3>
+          <p class="intro-card-desc">
+            Unlike generic web searches, questions submitted to the assistant receive targeted, step-by-step breakdowns designed specifically to reinforce academic comprehension.
+          </p>
+        </div>
+
+        <div class="intro-card">
+          <div class="intro-card-icon icon-blue">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+              <line x1="6" y1="6" x2="6.01" y2="6"></line>
+              <line x1="6" y1="18" x2="6.01" y2="18"></line>
+            </svg>
+          </div>
+          <h3 class="intro-card-title">Serverless Cloud Computing</h3>
+          <p class="intro-card-desc">
+            The application is deployed on Vercel Functions. Dynamic requests invoke ephemeral serverless workers that run securely in the cloud without exposing secret credentials to the client.
+          </p>
+        </div>
+
+        <div class="intro-card">
+          <div class="intro-card-icon icon-mint">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M8 12s1.5 2 4 2 4-2 4-2"></path>
+              <line x1="9" y1="9" x2="9.01" y2="9"></line>
+              <line x1="15" y1="9" x2="15.01" y2="9"></line>
+            </svg>
+          </div>
+          <h3 class="intro-card-title">Global CDN Distribution</h3>
+          <p class="intro-card-desc">
+            Static frontend assets (HTML, CSS, and JavaScript) are delivered directly through Vercel's multi-region Content Delivery Network, guaranteeing ultra-low latency worldwide.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section" id="features" style="background-color: var(--bg-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Core Features</span>
+        <h2 class="section-title">Built with intention.</h2>
+        <p class="section-desc">
+          Four fundamental pillars that power a reliable and focused student study experience.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <h3 class="feature-title">Instant AI Answers</h3>
+          <p class="feature-desc">
+            Get quick explanations for academic questions. Real-time inference generates timely responses when preparing for exams or solving problems.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+          </div>
+          <h3 class="feature-title">Simple Learning</h3>
+          <p class="feature-desc">
+            Understand difficult concepts through structured responses. Complex topics are organized with clear headings, bullet points, and code blocks.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+            </svg>
+          </div>
+          <h3 class="feature-title">Cloud Powered</h3>
+          <p class="feature-desc">
+            Access the application through the internet from any device without having to run local models or configure resource-heavy backend hardware.
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </div>
+          <h3 class="feature-title">Fast Content Delivery</h3>
+          <p class="feature-desc">
+            Static frontend resources are distributed through Vercel CDN, serving HTML, stylesheets, and scripts from edge locations close to students.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Workflow Process</span>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-desc">
+          A four-step streamlined lifecycle that connects the student to cloud intelligence.
+        </p>
+      </div>
+
+      <div class="steps-container">
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-top">
+            <span class="step-badge">STEP 1</span>
+            <div class="step-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+          </div>
+          <h3 class="step-title">Ask a Question</h3>
+          <p class="step-desc">
+            The student enters a question through the chatbot interface in their web browser.
+          </p>
+          <div class="step-arrow" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-top">
+            <span class="step-badge">STEP 2</span>
+            <div class="step-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+              </svg>
+            </div>
+          </div>
+          <h3 class="step-title">Cloud Processing</h3>
+          <p class="step-desc">
+            The question is sent securely to a Vercel serverless function (<code>/api/chat</code>) via HTTPS.
+          </p>
+          <div class="step-arrow" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-top">
+            <span class="step-badge">STEP 3</span>
+            <div class="step-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                <rect x="9" y="9" width="6" height="6"></rect>
+                <line x1="9" y1="1" x2="9" y2="4"></line>
+                <line x1="15" y1="1" x2="15" y2="4"></line>
+                <line x1="9" y1="20" x2="9" y2="23"></line>
+                <line x1="15" y1="20" x2="15" y2="23"></line>
+                <line x1="20" y1="9" x2="23" y2="9"></line>
+                <line x1="20" y1="14" x2="23" y2="14"></line>
+                <line x1="1" y1="9" x2="4" y2="9"></line>
+                <line x1="1" y1="14" x2="4" y2="14"></line>
+              </svg>
+            </div>
+          </div>
+          <h3 class="step-title">Grok AI Processing</h3>
+          <p class="step-desc">
+            The function communicates with the Grok API using the secret server key to generate an answer.
+          </p>
+          <div class="step-arrow" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-card">
+          <div class="step-top">
+            <span class="step-badge">STEP 4</span>
+            <div class="step-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+          </div>
+          <h3 class="step-title">Receive Your Answer</h3>
+          <p class="step-desc">
+            The generated response is returned as clean JSON and formatted in the chatbot.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture Section -->
+  <section class="section" id="architecture" style="background-color: var(--bg-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">System Architecture</span>
+        <h2 class="section-title">Powered by Cloud Technology</h2>
+        <p class="section-desc">
+          How static CDN delivery and dynamic serverless computing combine to form a high-performance system.
+        </p>
+      </div>
+
+      <div class="architecture-box">
+        <!-- Visual Flow Diagram -->
+        <div class="flow-diagram-wrapper" role="region" aria-label="End-to-End System Pipeline">
+          <div class="flow-node">
+            <div class="flow-node-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <span class="flow-node-title">Student Browser</span>
+            <span class="flow-node-sub">User Client</span>
+          </div>
+
+          <div class="flow-arrow-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+
+          <div class="flow-node">
+            <div class="flow-node-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <span class="flow-node-title">Vercel CDN</span>
+            <span class="flow-node-sub">Static Asset Edge</span>
+          </div>
+
+          <div class="flow-arrow-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+
+          <div class="flow-node">
+            <div class="flow-node-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+            </div>
+            <span class="flow-node-title">Frontend App</span>
+            <span class="flow-node-sub">HTML, CSS &amp; JS</span>
+          </div>
+
+          <div class="flow-arrow-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+
+          <div class="flow-node">
+            <div class="flow-node-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+              </svg>
+            </div>
+            <span class="flow-node-title">Vercel Function</span>
+            <span class="flow-node-sub">Secure Backend</span>
+          </div>
+
+          <div class="flow-arrow-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+
+          <div class="flow-node">
+            <div class="flow-node-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <span class="flow-node-title">Grok AI API</span>
+            <span class="flow-node-sub">Inference Engine</span>
+          </div>
+        </div>
+
+        <!-- Crucial Architecture Clarification Callout -->
+        <div class="arch-clarification">
+          <div class="clarification-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+          </div>
+          <div class="clarification-content">
+            <h4>Important Architectural Clarification</h4>
+            <p>
+              The Grok AI model <strong>does not</strong> run inside the Vercel CDN. Vercel's global CDN delivers static frontend assets (HTML, stylesheets, scripts) with edge caching. The dynamic <code>/api/chat</code> endpoint triggers a serverless Vercel Function that securely contacts xAI's remote inference endpoints.
+            </p>
+          </div>
+        </div>
+
+        <!-- Detailed Component Breakdown -->
+        <div class="arch-details-grid">
+          <div class="arch-detail-item">
+            <div class="arch-detail-header">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="var(--powder-blue)">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+              <span>Vercel CDN Edge</span>
+            </div>
+            <p class="arch-detail-text">
+              Delivers immutable static assets from globally distributed points of presence, caching pages close to visitors for near-instant first paint times.
+            </p>
+          </div>
+
+          <div class="arch-detail-item">
+            <div class="arch-detail-header">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="var(--lavender)">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+              </svg>
+              <span>Serverless Function</span>
+            </div>
+            <p class="arch-detail-text">
+              Validates incoming user questions, sanitizes parameters, verifies character limits, and securely injects the private <code>XAI_API_KEY</code> on the server side.
+            </p>
+          </div>
+
+          <div class="arch-detail-item">
+            <div class="arch-detail-header">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="var(--mint)">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+              <span>xAI Grok Responses API</span>
+            </div>
+            <p class="arch-detail-text">
+              Processes the prompt using fine-tuned reasoning models and produces structured explanations formatted with markdown, headings, and clean bullet points.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack Section -->
+  <section class="section" id="technology">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Technology Stack</span>
+        <h2 class="section-title">Built with modern cloud tools</h2>
+        <p class="section-desc">
+          Restrained, high-efficiency technologies combined to form a zero-bloat student platform.
+        </p>
+      </div>
+
+      <div class="tech-grid">
+        <!-- Tech 1 -->
+        <div class="tech-card">
+          <div class="tech-icon-container icon-lavender">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <h3 class="tech-name">Grok API</h3>
+          <span class="tech-role">AI Response Generation</span>
+          <p class="tech-desc">
+            xAI's advanced language model API generating accurate, structured academic responses.
+          </p>
+        </div>
+
+        <!-- Tech 2 -->
+        <div class="tech-card">
+          <div class="tech-icon-container icon-blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 22h20L12 2z"></path>
+            </svg>
+          </div>
+          <h3 class="tech-name">Vercel</h3>
+          <span class="tech-role">Cloud Deployment</span>
+          <p class="tech-desc">
+            Cloud infrastructure platform providing zero-config deployment and automated CI/CD.
+          </p>
+        </div>
+
+        <!-- Tech 3 -->
+        <div class="tech-card">
+          <div class="tech-icon-container icon-mint">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+              <line x1="6" y1="6" x2="6.01" y2="6"></line>
+              <line x1="6" y1="18" x2="6.01" y2="18"></line>
+            </svg>
+          </div>
+          <h3 class="tech-name">Vercel Functions</h3>
+          <span class="tech-role">Backend Request Handling</span>
+          <p class="tech-desc">
+            Ephemeral Node.js serverless functions acting as secure API proxies for client requests.
+          </p>
+        </div>
+
+        <!-- Tech 4 -->
+        <div class="tech-card">
+          <div class="tech-icon-container icon-blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </div>
+          <h3 class="tech-name">Vercel CDN</h3>
+          <span class="tech-role">Static Content Delivery</span>
+          <p class="tech-desc">
+            Distributed edge caching network serving HTML, CSS, and JS globally with sub-second latency.
+          </p>
+        </div>
+
+        <!-- Tech 5 -->
+        <div class="tech-card">
+          <div class="tech-icon-container icon-lavender">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <h3 class="tech-name">HTML / CSS / JS</h3>
+          <span class="tech-role">Frontend Application</span>
+          <p class="tech-desc">
+            Native, framework-free client code ensuring light payloads and universal compatibility.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about" style="background-color: var(--bg-subtle);">
+    <div class="container">
+      <div class="about-card">
+        <div class="about-content">
+          <span class="section-badge" style="align-self: flex-start;">Academic Context</span>
+          <h2 class="about-title">Cloud Computing CAT-3 Continuous Assessment</h2>
+          <p class="about-desc">
+            This project demonstrates practical mastery of modern cloud architectures. Rather than provisioning costly monolithic servers, the application combines distributed content delivery networks with serverless compute and external AI cognitive services.
+          </p>
+          <ul class="about-highlights">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span><strong>Separation of Concerns:</strong> CDN for static delivery, Serverless Functions for dynamic compute.</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span><strong>Zero Key Leakage:</strong> Secrets securely stored in Vercel Environment Variables.</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span><strong>Edge Acceleration:</strong> Microsecond static asset cache invalidation and delivery.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="about-sidebar">
+          <div class="sidebar-item">
+            <span class="sidebar-label">Course Module</span>
+            <span class="sidebar-val">Cloud Computing</span>
+          </div>
+          <div class="sidebar-item">
+            <span class="sidebar-label">Assessment</span>
+            <span class="sidebar-val">CAT-3 Project Implementation</span>
+          </div>
+          <div class="sidebar-item">
+            <span class="sidebar-label">Core Architecture</span>
+            <span class="sidebar-val">Serverless Cloud Functions + Edge CDN</span>
+          </div>
+          <div class="sidebar-item">
+            <span class="sidebar-label">Target Model</span>
+            <span class="sidebar-val">xAI Grok Responses API</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final Call-to-Action Section -->
+  <section class="section" id="cta">
+    <div class="container">
+      <div class="cta-box">
+        <h2 class="cta-heading">Ready to learn something new?</h2>
+        <p class="cta-description">
+          Your next question could be the beginning of something interesting.
+        </p>
+        <div class="cta-btn-wrapper">
+          <a href="app.html" class="btn-primary btn-large">
+            <span>Open AI Assistant</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#hero" class="nav-brand">
+            <div class="brand-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span class="brand-title">Grok Student Assistant</span>
+          </a>
+          <p class="footer-tagline">
+            Cloud Computing CAT-3 Project.<br>
+            Built using Grok API and Vercel.
+          </p>
+        </div>
+
+        <div class="footer-links-group">
+          <div class="footer-col">
+            <span class="footer-col-title">Navigation</span>
+            <a href="#hero">Home</a>
+            <a href="#intro">Overview</a>
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+          </div>
+
+          <div class="footer-col">
+            <span class="footer-col-title">Architecture</span>
+            <a href="#architecture">Cloud Flow</a>
+            <a href="#technology">Technology Stack</a>
+            <a href="#about">Academic Context</a>
+            <a href="app.html">Launch Assistant</a>
+          </div>
+
+          <div class="footer-col">
+            <span class="footer-col-title">Documentation</span>
+            <a href="README.md" target="_blank">Project README</a>
+            <a href="flow.md" target="_blank">Flow Architecture</a>
+            <a href="build.md" target="_blank">Build Guide</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Grok Student Assistant &bull; Cloud Computing CAT-3 Project</p>
+        <span class="footer-meta-note">Static delivery via Vercel CDN &bull; Dynamic compute via Vercel Functions</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="landing.js"></script>
 </body>
 </html>

@@ -762,3 +762,35 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+/* ==========================================================================
+   Grok Student Assistant — App Stylesheet Updates
+   ========================================================================== */
+
+/* Add styles for the back button in the header */
+.back-home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.4rem 0.7rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.back-home-link:hover {
+  color: var(--text);
+  border-color: var(--muted);
+  background: var(--panel);
+}
+
+.header-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+  margin: 0 0.25rem;
+}

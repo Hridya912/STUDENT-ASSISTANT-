@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Grok Student Assistant — AI Study Companion powered by Grok API and Vercel Cloud Functions.">
+  <meta name="theme-color" content="#08090D">
+  <title>Assistant — Grok Student Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Glow -->
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <div class="app-layout">
+    <!-- Header with Back to Landing Page link -->
+    <header class="app-header">
+      <div class="brand">
+        <a href="/" class="back-home-link" title="Return to Landing Page" aria-label="Return to Landing Page">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Home</span>
+        </a>
+        <div class="header-divider" aria-hidden="true"></div>
+        <div class="brand-logo" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          </svg>
+        </div>
+        <div class="brand-info">
+          <span class="brand-name">Grok Student Assistant</span>
+          <span class="brand-badge">
+            <span class="status-dot" aria-hidden="true"></span>
+            AI study assistant
+          </span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <a href="/" class="secondary-btn" title="View Project Overview">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          <span class="btn-text">Overview</span>
+        </a>
+        <button id="clear-chat-btn" class="secondary-btn" title="Clear conversation" aria-label="Clear conversation history">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+          </svg>
+          <span class="btn-text">Clear</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section id="hero-section" class="hero-section">
+        <div class="hero-pill">
+          <span class="pill-sparkle" aria-hidden="true">✦</span>
+          <span>Cloud Computing CAT-3 Project</span>
+        </div>
+        <h1 class="hero-title">
+          Your study companion, <span class="gradient-text">powered by Grok.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Ask a question. Get a clear explanation. Keep learning.
+        </p>
+
+        <!-- Prompt Starter Chips -->
+        <div class="chips-container" role="region" aria-label="Suggested study questions">
+          <span class="chips-label">Try asking:</span>
+          <div class="chips-grid">
+            <button class="chip-btn" data-prompt="Explain cloud computing in simple words with real-life examples.">
+              ☁️ Cloud computing basics
+            </button>
+            <button class="chip-btn" data-prompt="What is the difference between IaaS, PaaS, and SaaS?">
+              ⚙️ IaaS vs PaaS vs SaaS
+            </button>
+            <button class="chip-btn" data-prompt="How does a Content Delivery Network (CDN) work and why is it useful?">
+              🌐 How CDNs work
+            </button>
+            <button class="chip-btn" data-prompt="Explain DNS lookup step by step as if I am a beginner.">
+              🔍 DNS lookup explained
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chat Panel Container -->
+      <section class="chat-panel" aria-label="Conversation panel">
+        <!-- Messages List -->
+        <div id="messages-container" class="messages-container" role="log" aria-live="polite" aria-relevant="additions text">
+          <!-- Chat welcome note inside panel -->
+          <div class="welcome-card" id="welcome-card">
+            <div class="welcome-icon" aria-hidden="true">🎓</div>
+            <div class="welcome-body">
+              <h2>Welcome to Grok Student Assistant</h2>
+              <p>Type any academic concept, homework question, or topic you'd like explained step by step. Grok provides structured answers designed for easy learning.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Input Form -->
+        <form id="chat-form" class="chat-form" role="form" aria-label="Question submission form">
+          <div class="input-wrapper">
+            <label for="question-input" class="sr-only">Enter your study question</label>
+            <textarea
+              id="question-input"
+              class="question-input"
+              rows="1"
+              maxlength="2000"
+              placeholder="Ask anything about your studies... (Enter to send, Shift+Enter for new line)"
+              required
+              aria-required="true"
+            ></textarea>
+            
+            <div class="input-controls">
+              <span id="char-counter" class="char-counter" aria-live="off">0 / 2,000</span>
+              <button type="submit" id="send-button" class="send-button" aria-label="Send question">
+                <span class="send-label">Send</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p class="disclaimer">
+        AI-generated answers may contain mistakes. Verify important information with trusted learning resources.
+      </p>
+      <p class="architecture-note">
+        Deployed on <strong>Vercel Functions</strong> &bull; Static assets cached via <strong>Vercel CDN</strong> &bull; Powered by <strong>xAI Grok</strong>
+      </p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
