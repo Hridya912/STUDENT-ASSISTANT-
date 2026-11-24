@@ -1,0 +1,12 @@
+# Local-only files that should never be deployed or served publicly
+.env
+.env.*
+!.env.example
+server.js
+test.js
+build.md
+flow.md
+frontend.md
+node_modules
+.DS_Store
+*.log

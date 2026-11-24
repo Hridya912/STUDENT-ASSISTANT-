@@ -93,6 +93,32 @@ API access and model availability may depend on the xAI account, billing, and cu
 
 See [`build.md`](build.md) for detailed steps and commands.
 
+## Deploy to Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHridya912%2FSTUDENT-ASSISTANT-&env=XAI_API_KEY&envDescription=xAI%20API%20key%20from%20console.x.ai)
+
+1. Go to https://vercel.com/new and import the `STUDENT-ASSISTANT-` GitHub repo.
+2. Framework preset: **Other**. Leave Build Command, Output Directory and Install Command empty.
+3. Under **Environment Variables** add:
+
+   | Name | Value | Required |
+   |------|-------|----------|
+   | `XAI_API_KEY` | your key from https://console.x.ai | Yes |
+   | `XAI_MODEL` | e.g. `grok-4.6` | No (defaults to `grok-4.6`) |
+
+4. Click **Deploy**. Every push to `main` redeploys automatically.
+
+If you add or change an environment variable later, redeploy (Deployments → ⋯ → Redeploy) for it to take effect.
+
+**Routes after deploy:** `/` landing page · `/app` (or `/chat`) assistant · `/api/chat` serverless function.
+
+### Run locally
+
+```bash
+cp .env.example .env.local   # then put your real XAI_API_KEY in it
+npm run dev                  # http://localhost:3000
+```
+
 ## Security and responsible use
 
 - **Never** put the xAI API key in `script.js`, HTML, a public GitHub repository, or any variable prefixed with `NEXT_PUBLIC_` / `VITE_`.
