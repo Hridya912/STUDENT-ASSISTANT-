@@ -1,0 +1,23 @@
+{
+  "name": "grok-student-assistant",
+  "version": "1.0.0",
+  "description": "AI-Powered Cloud-Based Student Assistant Using Grok API and Vercel CDN",
+  "main": "api/chat.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "cloud-computing",
+    "grok",
+    "xai",
+    "vercel",
+    "cdn",
+    "serverless",
+    "student-assistant"
+  ],
+  "author": "",
+  "license": "MIT"
+}
