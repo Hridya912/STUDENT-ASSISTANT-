@@ -4,74 +4,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Grok Student Assistant — AI Study Companion powered by Grok API and Vercel Cloud Functions.">
-  <meta name="theme-color" content="#08090D">
+  <meta name="theme-color" content="#FBFBFC">
   <title>Assistant — Grok Student Assistant</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="landing.css?v=3">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
-<body>
-  <!-- Ambient Glow -->
-  <div class="ambient-glow" aria-hidden="true"></div>
+<body class="app-page">
+  <div class="bg-decorations" aria-hidden="true">
+    <div class="decor-glow-top"></div>
+  </div>
 
-  <div class="app-layout">
-    <!-- Header with Back to Landing Page link -->
-    <header class="app-header">
-      <div class="brand">
-        <a href="/" class="back-home-link" title="Return to Landing Page" aria-label="Return to Landing Page">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-          </svg>
-          <span>Home</span>
-        </a>
-        <div class="header-divider" aria-hidden="true"></div>
-        <div class="brand-logo" aria-hidden="true">
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="/" class="nav-brand" aria-label="Grok Student Assistant Home">
+        <div class="brand-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
           </svg>
         </div>
-        <div class="brand-info">
-          <span class="brand-name">Grok Student Assistant</span>
-          <span class="brand-badge">
-            <span class="status-dot" aria-hidden="true"></span>
-            AI study assistant
-          </span>
-        </div>
-      </div>
+        <span class="brand-title">Grok Student Assistant</span>
+      </a>
 
-      <div class="header-actions">
-        <a href="/" class="secondary-btn" title="View Project Overview">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="12" y1="16" x2="12" y2="12"></line>
-            <line x1="12" y1="8" x2="12.01" y2="8"></line>
-          </svg>
-          <span class="btn-text">Overview</span>
-        </a>
-        <button id="clear-chat-btn" class="secondary-btn" title="Clear conversation" aria-label="Clear conversation history">
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/#features" class="nav-link">Features</a></li>
+        <li><a href="/#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="/#architecture" class="nav-link">Architecture</a></li>
+        <li><a href="app.html" class="nav-link active" aria-current="page">Assistant</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <span class="status-pill"><span class="status-dot" aria-hidden="true"></span>Online</span>
+        <button id="clear-chat-btn" class="btn-secondary btn-sm" title="Clear conversation" aria-label="Clear conversation history">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <polyline points="3 6 5 6 21 6"></polyline>
             <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
           </svg>
-          <span class="btn-text">Clear</span>
+          <span class="btn-text">Clear chat</span>
+        </button>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
         </button>
       </div>
-    </header>
+    </div>
+  </nav>
 
+  <div class="app-layout container">
     <!-- Main Content Area -->
     <main class="main-content">
       <!-- Hero Section -->
-      <section id="hero-section" class="hero-section">
-        <div class="hero-pill">
-          <span class="pill-sparkle" aria-hidden="true">✦</span>
+      <section id="hero-section" class="app-hero">
+        <div class="hero-badge">
+          <span class="hero-badge-dot" aria-hidden="true"></span>
           <span>Cloud Computing CAT-3 Project</span>
         </div>
-        <h1 class="hero-title">
+        <h1 class="app-title">
           Your study companion, <span class="gradient-text">powered by Grok.</span>
         </h1>
-        <p class="hero-subtitle">
+        <p class="app-subtitle">
           Ask a question. Get a clear explanation. Keep learning.
         </p>
 
@@ -80,16 +75,16 @@
           <span class="chips-label">Try asking:</span>
           <div class="chips-grid">
             <button class="chip-btn" data-prompt="Explain cloud computing in simple words with real-life examples.">
-              ☁️ Cloud computing basics
+              Cloud computing basics
             </button>
             <button class="chip-btn" data-prompt="What is the difference between IaaS, PaaS, and SaaS?">
-              ⚙️ IaaS vs PaaS vs SaaS
+              IaaS vs PaaS vs SaaS
             </button>
             <button class="chip-btn" data-prompt="How does a Content Delivery Network (CDN) work and why is it useful?">
-              🌐 How CDNs work
+              How CDNs work
             </button>
             <button class="chip-btn" data-prompt="Explain DNS lookup step by step as if I am a beginner.">
-              🔍 DNS lookup explained
+              DNS lookup explained
             </button>
           </div>
         </div>
@@ -101,7 +96,7 @@
         <div id="messages-container" class="messages-container" role="log" aria-live="polite" aria-relevant="additions text">
           <!-- Chat welcome note inside panel -->
           <div class="welcome-card" id="welcome-card">
-            <div class="welcome-icon" aria-hidden="true">🎓</div>
+            <div class="welcome-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
             <div class="welcome-body">
               <h2>Welcome to Grok Student Assistant</h2>
               <p>Type any academic concept, homework question, or topic you'd like explained step by step. Grok provides structured answers designed for easy learning.</p>
@@ -149,6 +144,7 @@
     </footer>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=3"></script>
+  <script src="landing.js?v=3"></script>
 </body>
 </html>

@@ -149,7 +149,7 @@ const server = http.createServer(async (req, res) => {
 
     res.writeHead(200, {
       'Content-Type': contentType,
-      'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=60'
+      'Cache-Control': 'no-cache'
     });
 
     const stream = fs.createReadStream(filePath);
